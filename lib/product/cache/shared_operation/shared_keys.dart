@@ -5,4 +5,6 @@ enum SharedKeys {
   currentVersion,
   onboardingCompleted,
   backgroundAnimation,
+  networkLogs,
+  securityHistory,
 }

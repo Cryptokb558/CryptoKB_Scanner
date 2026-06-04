@@ -36,6 +36,16 @@ class $AssetsLottieGen {
   List<LottieGenImage> get values => [backroundAnimation];
 }
 
+class $AssetsSongsGen {
+  const $AssetsSongsGen();
+
+  /// File path: assets/songs/.gitkeep
+  String get aGitkeep => 'assets/songs/.gitkeep';
+
+  /// List of all assets
+  List<String> get values => [aGitkeep];
+}
+
 class $AssetsSvgGen {
   const $AssetsSvgGen();
 
@@ -115,6 +125,7 @@ class Assets {
 
   static const $AssetsImageGen image = $AssetsImageGen();
   static const $AssetsLottieGen lottie = $AssetsLottieGen();
+  static const $AssetsSongsGen songs = $AssetsSongsGen();
   static const $AssetsSvgGen svg = $AssetsSvgGen();
   static const AssetGenImage themeStyle = AssetGenImage(
     'assets/theme_style.png',

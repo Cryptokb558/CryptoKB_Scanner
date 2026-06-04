@@ -1,64 +1,137 @@
-# Flutter Starter Template
+# 🛡️ Android Security Scanner
 
-A ready-to-use Flutter boilerplate for starting new projects without setting up architecture from scratch. Clone, configure, and start building features immediately.
+A privacy-first **device security & network-stability** app for Android, built
+with Flutter. It scans your phone for tampering and surveillance indicators,
+flags risky apps, watches your network for drops, and keeps a timeline of how
+your security posture changes over time.
 
-## Screenshots
+> **Why it exists:** the project started from a real problem — a phone that kept
+> dropping its internet connection, with a suspicion of spyware. So it combines
+> automated heuristic checks with a manual audit guide and live network
+> monitoring.
 
-<p align="center">
-  <img src="app_image/onboarding.png" width="180" />
-  <img src="app_image/step5.png" width="180" />
-  <img src="app_image/home_0.png" width="180" />
-  <img src="app_image/home_1.png" width="180" />
-  <img src="app_image/settings.png" width="180" />
-  <img src="app_image/about.png" width="180" />
-  <img src="app_image/widget.png" width="180" />
-</p>
+> **100% on-device.** Every check runs locally. The app has no backend and sends
+> nothing off your phone.
 
-## Tech Stack
+---
 
-| Category | Package |
-|---|---|
-| State Management | flutter_bloc, freezed |
-| DI | get_it |
-| Routing | go_router, go_router_builder |
-| Cache | hive_ce, shared_preferences |
-| Localization | easy_localization |
-| Code Generation | build_runner, flutter_gen_runner, freezed, json_serializable |
-| UI | flutter_svg, lottie, shimmer, smooth_page_indicator |
+## ✨ Features
 
-## Getting Started
+### 🔍 Security Scan
+Heuristic + native checks, scored into a weighted **0–100 safety score** on an
+animated gauge:
+- Root / jailbreak (file paths **and** an executable `su` probe)
+- Active VPN / tunnel (transport-based, via `ConnectivityManager`)
+- System proxy & emulator / debug detection
+- Suspicious system files
+- **Accessibility services** — the #1 stalkerware keylogging vector
+- **Notification access** — apps reading all your messages / OTP codes
+- **Device administrator** apps that resist uninstall
+- **User-added CA certificates** — possible HTTPS man-in-the-middle
+- **Developer options / ADB-over-Wi-Fi** — remote attack surface
 
-After cloning, see **[`doc/project.md`](doc/project.md)** — the main project guide. It covers everything you need to get started.
+### 🕵️ Stalkerware Risk
+Aggregates the spyware-relevant checks into a single **LOW / MEDIUM / HIGH**
+verdict — a direct answer to "is my phone being watched?". Flagged apps are
+tappable and deep-link straight into the system **App info** screen.
 
-If this is a fresh clone, follow **[`doc/new_feature/setup_after_clone.md`](doc/new_feature/setup_after_clone.md)** first to clean generated files, install dependencies, and run code generation.
+### 📱 Risky Apps Scanner
+Enumerates installed apps and assigns each a risk level from its capabilities:
+accessibility access, device-admin rights, notification access, drawing over
+other apps, **sideloaded source** (installed outside an app store), recent
+install, and granted dangerous permissions (camera, mic, location, SMS…).
 
-## Documentation
+### 📈 Network Monitor
+TCP "ping" to a public DNS resolver every 2s, a **live latency chart**, and a
+persisted log of drops, recoveries and connection-type changes.
 
-The `doc/` directory is the built-in knowledge base for this project. Instead of memorizing conventions, read the relevant file.
+### 🧭 Security Timeline
+Records a snapshot after each scan and **diffs consecutive scans** into a
+human-readable history: *"Device administrator app detected"*, *"User-added
+certificate resolved"*, *"Safety score dropped 94 → 82"*.
 
-| File | What it covers |
-|------|----------------|
-| [`project.md`](doc/project.md) | Project overview, architecture, all 14 built-in systems |
-| [`new_feature/setup_after_clone.md`](doc/new_feature/setup_after_clone.md) | Post-clone setup steps (with Firebase opt-in) |
-| [`new_feature/README.md`](doc/new_feature/README.md) | New feature checklist + task-based navigation table |
-| [`new_feature/folder_structure.md`](doc/new_feature/folder_structure.md) | Feature folder conventions |
-| [`new_feature/state_management.md`](doc/new_feature/state_management.md) | Cubit + Freezed patterns |
-| [`new_feature/view_rules.md`](doc/new_feature/view_rules.md) | StatelessWidget vs StatefulWidget + ViewModel |
-| [`new_feature/model_rules.md`](doc/new_feature/model_rules.md) | Freezed models vs Hive models |
-| [`new_feature/service_rules.md`](doc/new_feature/service_rules.md) | Shared vs module-specific services |
-| [`new_feature/service_initialization.md`](doc/new_feature/service_initialization.md) | GetIt locator registration + init flow |
-| [`new_feature/data_storage.md`](doc/new_feature/data_storage.md) | SharedCache vs ProductCache decision tree |
-| [`new_feature/route_and_strings.md`](doc/new_feature/route_and_strings.md) | TypedGoRoute + EasyLocalization strings |
-| [`new_feature/widget_and_theme.md`](doc/new_feature/widget_and_theme.md) | Widget placement, TextTheme, AppPaddings, AppMessenger |
-| [`new_feature/assets_and_flutter_gen.md`](doc/new_feature/assets_and_flutter_gen.md) | FlutterGen type-safe asset access |
-| [`new_feature/enums_and_constants.md`](doc/new_feature/enums_and_constants.md) | Enum and constant placement |
-| [`new_feature/settings_and_urls.md`](doc/new_feature/settings_and_urls.md) | Store URLs, contact info, legal links |
-| [`new_feature/firebase_commented_out.md`](doc/new_feature/firebase_commented_out.md) | Firebase activation guide |
+### ✅ Privacy Guide
+A manual Android audit checklist for things the OS won't let an app verify
+automatically.
 
-## Credits
+---
 
-Some architectural patterns and utilities were referenced from [hatayi-yasat](https://github.com/VB-CORE/hatayi_yasat), a production Flutter project.
+## 🏗️ Architecture
 
-## License
+Feature-first, clean separation:
 
-Feel free to use this template for your own projects.
+```
+lib/
+├── feature/            # each feature: view + state (cubit) + service + model + widget
+│   ├── security/       #   + a <feature>.md describing it
+│   ├── app_scanner/
+│   ├── network/
+│   ├── security_timeline/
+│   ├── privacy_guide/
+│   └── home/
+└── product/            # shared: theme, navigation, cache, enums, DI
+```
+
+- **State:** `flutter_bloc` (Cubit) + `freezed` immutable states
+- **Routing:** `go_router` (typed routes)
+- **DI:** `get_it`
+- **Persistence:** `shared_preferences`
+- **Native bridge:** a `device_security` `MethodChannel`
+  (`android/.../security/SecurityScanner.kt`) reaches platform APIs the Flutter
+  sandbox cannot.
+
+---
+
+## 🚀 Getting Started
+
+```bash
+# 1. Install dependencies
+flutter pub get
+
+# 2. Generate code (freezed / json / router are git-ignored and must be built)
+dart run build_runner build --delete-conflicting-outputs
+
+# 3. Run on an Android device
+flutter run
+```
+
+Requirements: Flutter (Dart SDK ≥ 3.10), an Android device or emulator.
+
+> Generated files (`*.g.dart`, `*.freezed.dart`) are intentionally not committed,
+> so **step 2 is required** after every clone or after changing a model/route.
+
+---
+
+## 🔐 Permissions & Privacy
+
+- `QUERY_ALL_PACKAGES` — needed to enumerate installed apps for the Risky Apps /
+  stalkerware scan (a Play-allowed use for a security/antivirus app).
+- `SYSTEM_ALERT_WINDOW`, `FOREGROUND_SERVICE` — for the optional floating overlay.
+- All scanning is **read-only** and **on-device**. No analytics, no network
+  uploads, no account.
+
+---
+
+## ⚠️ Disclaimer
+
+These checks are **best-effort heuristics**. They surface common tampering and
+surveillance indicators but cannot detect a perfectly hidden, well-resourced
+implant. Treat this as an awareness tool, not a guarantee — and complement it
+with the built-in Privacy Guide. Android-only (iOS is not currently configured).
+
+---
+
+## 📸 Screenshots
+
+> _Add screenshots here_ (e.g. drop images in `app_image/` and link them).
+
+---
+
+## 🤝 Contributing
+
+Issues and PRs are welcome. Please run `flutter analyze` (zero issues) and
+`dart run build_runner build` before submitting.
+
+## 📄 License
+
+Released under the MIT License — see [`LICENSE`](LICENSE).

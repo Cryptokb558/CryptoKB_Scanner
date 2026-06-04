@@ -23,6 +23,10 @@ dependencies:
   path_provider: ^2.1.5
   shared_preferences: ^2.5.4
 
+  # Security & Network monitoring
+  connectivity_plus: ^6.1.0
+  device_info_plus: ^11.1.0
+
   # Localization
   easy_localization: ^3.0.1
 

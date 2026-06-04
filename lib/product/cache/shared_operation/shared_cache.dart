@@ -48,6 +48,27 @@ final class SharedCache {
     await _sharedOperation.setValue(SharedKeys.backgroundAnimation, enabled);
   }
 
+  // ── Network Logs (each entry is a JSON-encoded NetworkLogEvent) ──
+  List<String> get networkLogs =>
+      _sharedOperation.getValue<List<String>>(SharedKeys.networkLogs) ??
+      const [];
+
+  Future<void> setNetworkLogs(List<String> value) async {
+    await _sharedOperation.setValue<List<String>>(SharedKeys.networkLogs, value);
+  }
+
+  // ── Security History (each entry is a JSON-encoded SecuritySnapshot) ──
+  List<String> get securityHistory =>
+      _sharedOperation.getValue<List<String>>(SharedKeys.securityHistory) ??
+      const [];
+
+  Future<void> setSecurityHistory(List<String> value) async {
+    await _sharedOperation.setValue<List<String>>(
+      SharedKeys.securityHistory,
+      value,
+    );
+  }
+
   // ── Theme ──────────────────────────────────────────────────
   ThemeMode get themeMode {
     final key = _sharedOperation.getValue<String>(SharedKeys.theme);

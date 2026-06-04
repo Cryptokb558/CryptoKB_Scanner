@@ -3,7 +3,8 @@ import 'dart:math';
 import 'package:akillisletme/product/service/service_locator.dart';
 import 'package:flutter/material.dart';
 
-/// Arka plan animasyonu — yüzen "Flutter Starter Template" yazıları.
+/// Ambient "matrix code rain" backdrop — faint neon glyph columns falling
+/// behind the whole app, giving the scanner a terminal / hacker feel.
 class HomeBackground extends StatefulWidget {
   const HomeBackground({super.key});
 
@@ -11,42 +12,32 @@ class HomeBackground extends StatefulWidget {
     locator.sharedCache.isBackgroundAnimationEnabled,
   );
 
+  /// Neon accent reused by the home console UI so it matches the rain.
+  static const neon = Color(0xFF00FF9C);
+
   @override
   State<HomeBackground> createState() => _HomeBackgroundState();
 }
 
 class _HomeBackgroundState extends State<HomeBackground>
     with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late List<_FloatingText> _items;
+  late final AnimationController _controller;
 
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(seconds: 40),
+      duration: const Duration(seconds: 8),
       vsync: this,
     );
 
-    if (HomeBackground.enabledNotifier.value) _controller.repeat(reverse: true);
+    if (HomeBackground.enabledNotifier.value) _controller.repeat();
     HomeBackground.enabledNotifier.addListener(_onToggle);
-
-    final rng = Random(42);
-    _items = List.generate(12, (i) {
-      return _FloatingText(
-        x: rng.nextDouble() * 1.4 - 0.2,
-        y: rng.nextDouble(),
-        speed: 0.15 + rng.nextDouble() * 0.35,
-        opacity: 0.04 + rng.nextDouble() * 0.05,
-        fontSize: 14.0 + rng.nextDouble() * 10,
-        angle: 0,
-      );
-    });
   }
 
   void _onToggle() {
     if (HomeBackground.enabledNotifier.value) {
-      _controller.repeat(reverse: true);
+      _controller.repeat();
     } else {
       _controller.stop();
     }
@@ -65,82 +56,91 @@ class _HomeBackgroundState extends State<HomeBackground>
     if (!HomeBackground.enabledNotifier.value) return const SizedBox.shrink();
 
     final size = MediaQuery.sizeOf(context);
-    final cs = Theme.of(context).colorScheme;
     return AnimatedBuilder(
       animation: _controller,
       builder: (context, _) {
         return CustomPaint(
           size: size,
-          painter: _TextBackgroundPainter(
-            progress: _controller.value,
-            items: _items,
-            color: cs.primary,
-          ),
+          painter: _MatrixRainPainter(progress: _controller.value),
         );
       },
     );
   }
 }
 
-class _FloatingText {
-  const _FloatingText({
-    required this.x,
-    required this.y,
-    required this.speed,
-    required this.opacity,
-    required this.fontSize,
-    required this.angle,
-  });
-  final double x;
-  final double y;
-  final double speed;
-  final double opacity;
-  final double fontSize;
-  final double angle;
-}
-
-class _TextBackgroundPainter extends CustomPainter {
-  _TextBackgroundPainter({
-    required this.progress,
-    required this.items,
-    required this.color,
-  });
-
-  static const String _text = 'Flutter Starter Template';
+class _MatrixRainPainter extends CustomPainter {
+  _MatrixRainPainter({required this.progress});
 
   final double progress;
-  final List<_FloatingText> items;
-  final Color color;
+
+  static const _glyphs = r'ｱｲｳｴｵ01ﾊﾋﾌ#@%&$=+<>/0123456789ABCDEF';
+  static const double _cell = 22; // glyph cell height/width
+  static const int _trail = 14; // glyphs lit above each column head
+  static const Color _neon = HomeBackground.neon;
+
+  // Stable per-column randomness (so glyphs don't flicker every frame).
+  static final Random _rng = Random(7);
+  static List<double> _speeds = const [];
+  static List<double> _offsets = const [];
+  static List<List<String>> _columns = const [];
+  static int _cols = 0;
+  static int _rows = 0;
+
+  void _ensureGrid(Size size) {
+    final cols = (size.width / _cell).ceil();
+    final rows = (size.height / _cell).ceil() + _trail;
+    if (cols == _cols && rows == _rows && _columns.isNotEmpty) return;
+    _cols = cols;
+    _rows = rows;
+    _speeds = List.generate(cols, (_) => 0.4 + _rng.nextDouble() * 1.1);
+    _offsets = List.generate(cols, (_) => _rng.nextDouble());
+    _columns = List.generate(
+      cols,
+      (_) => List.generate(
+        rows,
+        (_) => _glyphs[_rng.nextInt(_glyphs.length)],
+      ),
+    );
+  }
 
   @override
   void paint(Canvas canvas, Size size) {
-    for (final item in items) {
-      final yOffset = (item.y + progress * item.speed) % 1.3 - 0.15;
-      final cx = item.x * size.width;
-      final cy = yOffset * size.height;
+    _ensureGrid(size);
 
-      canvas
-        ..save()
-        ..translate(cx, cy)
-        ..rotate(item.angle);
+    for (var c = 0; c < _cols; c++) {
+      final x = c * _cell;
+      // Head row scrolls down continuously, wrapping around.
+      final headF = ((progress * _speeds[c] + _offsets[c]) % 1.0) * _rows;
+      final head = headF.floor();
 
-      final textStyle = TextStyle(
-        color: color.withValues(alpha: item.opacity),
-        fontSize: item.fontSize,
-        fontWeight: FontWeight.w600,
-        letterSpacing: 1.5,
-      );
+      for (var t = 0; t < _trail; t++) {
+        final row = head - t;
+        if (row < 0 || row >= _rows) continue;
+        final y = row * _cell;
+        // Brightest at the head, fading up the trail.
+        final fade = 1 - t / _trail;
+        final alpha = t == 0 ? 0.32 : 0.16 * fade;
+        if (alpha <= 0.01) continue;
 
-      final tp = TextPainter(
-        text: TextSpan(text: _text, style: textStyle),
-        textDirection: TextDirection.ltr,
-      )..layout();
-      tp.paint(canvas, Offset(-tp.width / 2, -tp.height / 2));
-      canvas.restore();
+        TextPainter(
+          text: TextSpan(
+            text: _columns[c][row],
+            style: TextStyle(
+              color: (t == 0 ? Colors.white : _neon).withValues(alpha: alpha),
+              fontSize: 15,
+              fontFamily: 'monospace',
+              height: 1,
+            ),
+          ),
+          textDirection: TextDirection.ltr,
+        )
+          ..layout()
+          ..paint(canvas, Offset(x, y));
+      }
     }
   }
 
   @override
-  bool shouldRepaint(_TextBackgroundPainter oldDelegate) =>
+  bool shouldRepaint(_MatrixRainPainter oldDelegate) =>
       progress != oldDelegate.progress;
 }

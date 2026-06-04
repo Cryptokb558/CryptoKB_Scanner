@@ -57,8 +57,14 @@ app.*.map.json
 
 # Environment / Secrets
 .env
+.env.*
 *.jks
 *.keystore
+*.p12
+*.pem
+*.mobileprovision
+**/key.properties
+**/android/local.properties
 google-services.json
 GoogleService-Info.plist
 firebase_options.dart

@@ -11,6 +11,7 @@ import android.provider.Settings
 import android.widget.RemoteViews
 import com.cleanstart.akillisletme.home_widget.HomeWidgetProvider
 import com.cleanstart.akillisletme.overlay.OverlayService
+import com.cleanstart.akillisletme.security.SecurityScanner
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
@@ -26,6 +27,42 @@ class MainActivity : FlutterActivity() {
         super.configureFlutterEngine(flutterEngine)
         setupOverlayChannel(flutterEngine)
         setupCounterChannel(flutterEngine)
+        setupSecurityChannel(flutterEngine)
+    }
+
+    private fun setupSecurityChannel(flutterEngine: FlutterEngine) {
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, SECURITY_CHANNEL).apply {
+            setMethodCallHandler { call, result ->
+                when (call.method) {
+                    "scan" -> result.success(SecurityScanner.buildReport(this@MainActivity))
+                    "scanApps" -> result.success(SecurityScanner.scanInstalledApps(this@MainActivity))
+                    "openAppSettings" -> {
+                        val pkg = call.argument<String>("package")
+                        result.success(openAppSettings(pkg))
+                    }
+                    else -> result.notImplemented()
+                }
+            }
+        }
+    }
+
+    /** Opens the system "App info" screen for [pkg]; falls back to the app list. */
+    private fun openAppSettings(pkg: String?): Boolean {
+        return try {
+            val intent = if (pkg.isNullOrEmpty()) {
+                Intent(Settings.ACTION_APPLICATION_SETTINGS)
+            } else {
+                Intent(
+                    Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                    Uri.parse("package:$pkg"),
+                )
+            }
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            true
+        } catch (e: Exception) {
+            false
+        }
     }
 
     override fun onStart() {
@@ -105,6 +142,7 @@ class MainActivity : FlutterActivity() {
     companion object {
         private const val OVERLAY_CHANNEL = "overlay_permission"
         private const val COUNTER_CHANNEL = "counter"
+        private const val SECURITY_CHANNEL = "device_security"
         private const val PREFS_NAME = "widget_prefs"
         private const val KEY_COUNTER = "counter"
         private const val KEY_OVERLAY_ENABLED = "overlay_enabled"

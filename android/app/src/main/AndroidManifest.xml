@@ -1,10 +1,15 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <!-- Needed to enumerate installed apps for the Risky Apps / stalkerware scan.
+         Allowed Play use case: an antivirus / security scanner app. -->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
 
     <application
-        android:label="clean_start"
+        android:label="Security Scanner"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
