@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Generate localization files
+        run: dart run easy_localization:generate -f keys -o locale_keys.g.dart -S assets/translations -O lib/product/init/language
+
       - name: Build APK
         run: flutter build apk --release
 
