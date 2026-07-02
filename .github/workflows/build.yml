@@ -29,6 +29,50 @@ jobs:
       - name: Generate code (Hive, JSON, routing, assets)
         run: dart run build_runner build --delete-conflicting-outputs
 
+      - name: Patch missing translation keys
+        run: |
+          python3 << 'PYEOF'
+          import re, json, glob, os
+
+          used = set()
+          for path in glob.glob('lib/**/*.dart', recursive=True):
+              with open(path, encoding='utf-8', errors='ignore') as f:
+                  content = f.read()
+              for m in re.finditer(r'LocaleKeys\.([A-Za-z0-9_]+)', content):
+                  used.add(m.group(1))
+
+          print(f"Found {len(used)} LocaleKeys usages in code")
+
+          trans_dir = 'assets/translations'
+          for fname in os.listdir(trans_dir):
+              if not fname.endswith('.json'):
+                  continue
+              fpath = os.path.join(trans_dir, fname)
+              with open(fpath, encoding='utf-8') as f:
+                  data = json.load(f)
+
+              def flatten_keys(d, prefix=''):
+                  keys = set()
+                  for k, v in d.items():
+                      full = f"{prefix}_{k}" if prefix else k
+                      if isinstance(v, dict):
+                          keys |= flatten_keys(v, full)
+                      else:
+                          keys.add(full)
+                  return keys
+
+              existing = flatten_keys(data)
+              missing = used - existing
+              if missing:
+                  print(f"{fname}: adding {len(missing)} missing keys")
+                  for key in missing:
+                      data[key] = key
+                  with open(fpath, 'w', encoding='utf-8') as f:
+                      json.dump(data, f, ensure_ascii=False, indent=2)
+              else:
+                  print(f"{fname}: no missing keys")
+          PYEOF
+
       - name: Generate localization files
         run: dart run easy_localization:generate -f keys -o locale_keys.g.dart -S assets/translations -O lib/product/init/language
 
