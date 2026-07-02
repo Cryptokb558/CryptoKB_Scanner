@@ -1,7 +1,7 @@
-import 'package:akillisletme/feature/security/model/security_rule_check.dart';
-import 'package:akillisletme/feature/security/service/security_service.dart';
-import 'package:akillisletme/product/const/app_paddings.dart';
-import 'package:akillisletme/product/enum/check_severity.dart';
+import 'package:cryptokb_scanner/feature/security/model/security_rule_check.dart';
+import 'package:cryptokb_scanner/feature/security/service/security_service.dart';
+import 'package:cryptokb_scanner/product/const/app_paddings.dart';
+import 'package:cryptokb_scanner/product/enum/check_severity.dart';
 import 'package:flutter/material.dart';
 
 /// Expandable card showing a single rule's status, detail and explanation.

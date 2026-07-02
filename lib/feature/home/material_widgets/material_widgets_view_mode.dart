@@ -1,4 +1,4 @@
-import 'package:akillisletme/feature/home/material_widgets/material_widgets_view.dart';
+import 'package:cryptokb_scanner/feature/home/material_widgets/material_widgets_view.dart';
 import 'package:flutter/material.dart';
 
 abstract class MaterialWidgetsViewMode extends State<MaterialWidgetsView> {

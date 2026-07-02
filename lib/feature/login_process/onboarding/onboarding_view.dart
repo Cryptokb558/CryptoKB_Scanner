@@ -1,12 +1,12 @@
 import 'dart:async';
 
-import 'package:akillisletme/feature/login_process/onboarding/cubit/onboarding_cubit.dart';
-import 'package:akillisletme/feature/login_process/onboarding/onboarding_view_model.dart';
-import 'package:akillisletme/feature/login_process/onboarding/steps/step1/step_1.dart';
-import 'package:akillisletme/feature/login_process/onboarding/steps/step2/step_2.dart';
-import 'package:akillisletme/feature/login_process/onboarding/steps/step3/step_3.dart';
-import 'package:akillisletme/feature/login_process/onboarding/steps/step4/step_4.dart';
-import 'package:akillisletme/feature/login_process/onboarding/steps/step_5.dart';
+import 'package:cryptokb_scanner/feature/login_process/onboarding/cubit/onboarding_cubit.dart';
+import 'package:cryptokb_scanner/feature/login_process/onboarding/onboarding_view_model.dart';
+import 'package:cryptokb_scanner/feature/login_process/onboarding/steps/step1/step_1.dart';
+import 'package:cryptokb_scanner/feature/login_process/onboarding/steps/step2/step_2.dart';
+import 'package:cryptokb_scanner/feature/login_process/onboarding/steps/step3/step_3.dart';
+import 'package:cryptokb_scanner/feature/login_process/onboarding/steps/step4/step_4.dart';
+import 'package:cryptokb_scanner/feature/login_process/onboarding/steps/step_5.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

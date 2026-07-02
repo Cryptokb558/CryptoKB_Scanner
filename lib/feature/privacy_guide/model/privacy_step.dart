@@ -1,4 +1,4 @@
-import 'package:akillisletme/product/enum/check_severity.dart';
+import 'package:cryptokb_scanner/product/enum/check_severity.dart';
 
 /// A single manual privacy-audit step the user performs in Android Settings.
 class PrivacyStep {

@@ -1,4 +1,4 @@
-import 'package:akillisletme/product/cache/shared_operation/shared_keys.dart';
+import 'package:cryptokb_scanner/product/cache/shared_operation/shared_keys.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'shared_operation_generic_mixin.dart';

@@ -1,6 +1,6 @@
-import 'package:akillisletme/feature/security_timeline/model/security_timeline_event.dart';
-import 'package:akillisletme/feature/security_timeline/service/security_history_service.dart';
-import 'package:akillisletme/product/const/app_paddings.dart';
+import 'package:cryptokb_scanner/feature/security_timeline/model/security_timeline_event.dart';
+import 'package:cryptokb_scanner/feature/security_timeline/service/security_history_service.dart';
+import 'package:cryptokb_scanner/product/const/app_paddings.dart';
 import 'package:flutter/material.dart';
 
 /// Read-only history of past scans: what changed and when (new Device Admin,

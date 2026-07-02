@@ -1,8 +1,8 @@
-import 'package:akillisletme/feature/app_scanner/service/app_scan_service.dart';
-import 'package:akillisletme/feature/app_scanner/state/app_scan_cubit.dart';
-import 'package:akillisletme/feature/app_scanner/widget/risky_app_tile.dart';
-import 'package:akillisletme/product/const/app_paddings.dart';
-import 'package:akillisletme/product/widget/app_primary_button.dart';
+import 'package:cryptokb_scanner/feature/app_scanner/service/app_scan_service.dart';
+import 'package:cryptokb_scanner/feature/app_scanner/state/app_scan_cubit.dart';
+import 'package:cryptokb_scanner/feature/app_scanner/widget/risky_app_tile.dart';
+import 'package:cryptokb_scanner/product/const/app_paddings.dart';
+import 'package:cryptokb_scanner/product/widget/app_primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

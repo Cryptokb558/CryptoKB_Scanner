@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:akillisletme/feature/network/model/network_log_event.dart';
-import 'package:akillisletme/feature/network/service/network_monitor_service.dart';
+import 'package:cryptokb_scanner/feature/network/model/network_log_event.dart';
+import 'package:cryptokb_scanner/feature/network/service/network_monitor_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:akillisletme/feature/security/model/security_rule_check.dart';
-import 'package:akillisletme/product/enum/check_severity.dart';
+import 'package:cryptokb_scanner/feature/security/model/security_rule_check.dart';
+import 'package:cryptokb_scanner/product/enum/check_severity.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';

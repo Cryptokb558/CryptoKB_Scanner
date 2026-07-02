@@ -1,11 +1,11 @@
-import 'package:akillisletme/feature/security/service/security_service.dart';
-import 'package:akillisletme/feature/security/state/security_cubit.dart';
-import 'package:akillisletme/feature/security/widget/circular_gauge.dart';
-import 'package:akillisletme/feature/security/widget/security_rule_tile.dart';
-import 'package:akillisletme/feature/security/widget/stalkerware_banner.dart';
-import 'package:akillisletme/product/const/app_paddings.dart';
-import 'package:akillisletme/product/navigation/app_router.dart';
-import 'package:akillisletme/product/widget/app_primary_button.dart';
+import 'package:cryptokb_scanner/feature/security/service/security_service.dart';
+import 'package:cryptokb_scanner/feature/security/state/security_cubit.dart';
+import 'package:cryptokb_scanner/feature/security/widget/circular_gauge.dart';
+import 'package:cryptokb_scanner/feature/security/widget/security_rule_tile.dart';
+import 'package:cryptokb_scanner/feature/security/widget/stalkerware_banner.dart';
+import 'package:cryptokb_scanner/product/const/app_paddings.dart';
+import 'package:cryptokb_scanner/product/navigation/app_router.dart';
+import 'package:cryptokb_scanner/product/widget/app_primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

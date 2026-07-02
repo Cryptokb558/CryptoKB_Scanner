@@ -1,6 +1,6 @@
-import 'package:akillisletme/product/const/app_string.dart';
-import 'package:akillisletme/product/init/language/locale_keys.g.dart';
-import 'package:akillisletme/product/service/service_locator.dart';
+import 'package:cryptokb_scanner/product/const/app_string.dart';
+import 'package:cryptokb_scanner/product/init/language/locale_keys.g.dart';
+import 'package:cryptokb_scanner/product/service/service_locator.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 

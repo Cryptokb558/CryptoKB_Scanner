@@ -1,9 +1,9 @@
-import 'package:akillisletme/feature/network/service/network_monitor_service.dart';
-import 'package:akillisletme/feature/network/state/network_cubit.dart';
-import 'package:akillisletme/feature/network/widget/latency_chart.dart';
-import 'package:akillisletme/feature/network/widget/network_log_tile.dart';
-import 'package:akillisletme/product/const/app_paddings.dart';
-import 'package:akillisletme/product/utils/app_messenger.dart';
+import 'package:cryptokb_scanner/feature/network/service/network_monitor_service.dart';
+import 'package:cryptokb_scanner/feature/network/state/network_cubit.dart';
+import 'package:cryptokb_scanner/feature/network/widget/latency_chart.dart';
+import 'package:cryptokb_scanner/feature/network/widget/network_log_tile.dart';
+import 'package:cryptokb_scanner/product/const/app_paddings.dart';
+import 'package:cryptokb_scanner/product/utils/app_messenger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

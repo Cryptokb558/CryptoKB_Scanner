@@ -1,5 +1,5 @@
-import 'package:akillisletme/feature/login_process/onboarding/cubit/onboarding_cubit.dart';
-import 'package:akillisletme/feature/login_process/onboarding/onboarding_view.dart';
+import 'package:cryptokb_scanner/feature/login_process/onboarding/cubit/onboarding_cubit.dart';
+import 'package:cryptokb_scanner/feature/login_process/onboarding/onboarding_view.dart';
 import 'package:flutter/material.dart';
 
 abstract class OnboardingViewModel extends State<OnboardingView> {

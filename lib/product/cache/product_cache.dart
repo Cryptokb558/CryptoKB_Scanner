@@ -1,6 +1,6 @@
-import 'package:akillisletme/product/cache/cache_manager.dart';
-import 'package:akillisletme/product/cache/hive_v2/hive_operation_manager.dart';
-import 'package:akillisletme/product/cache/hive_v2/model/app_cache_model.dart';
+import 'package:cryptokb_scanner/product/cache/cache_manager.dart';
+import 'package:cryptokb_scanner/product/cache/hive_v2/hive_operation_manager.dart';
+import 'package:cryptokb_scanner/product/cache/hive_v2/model/app_cache_model.dart';
 
 final class ProductCache {
   ProductCache({required CacheManager cacheManager})

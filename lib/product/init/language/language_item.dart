@@ -1,4 +1,4 @@
-import 'package:akillisletme/product/init/language/core_localize.dart';
+import 'package:cryptokb_scanner/product/init/language/core_localize.dart';
 import 'package:flutter/material.dart';
 
 @immutable

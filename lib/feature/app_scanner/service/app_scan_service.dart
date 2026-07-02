@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:akillisletme/feature/app_scanner/model/risky_app.dart';
+import 'package:cryptokb_scanner/feature/app_scanner/model/risky_app.dart';
 import 'package:flutter/services.dart';
 
 /// Fetches the installed-app risk inventory from the native side over the

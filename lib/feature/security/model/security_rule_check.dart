@@ -1,4 +1,4 @@
-import 'package:akillisletme/product/enum/check_severity.dart';
+import 'package:cryptokb_scanner/product/enum/check_severity.dart';
 import 'package:equatable/equatable.dart';
 
 /// An installed app surfaced by a rule (e.g. one holding a risky permission),

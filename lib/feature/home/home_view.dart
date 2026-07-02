@@ -1,7 +1,7 @@
-import 'package:akillisletme/feature/home/home_view_mode.dart';
-import 'package:akillisletme/feature/home/widget/home_background.dart';
-import 'package:akillisletme/product/const/app_paddings.dart';
-import 'package:akillisletme/product/navigation/app_router.dart';
+import 'package:cryptokb_scanner/feature/home/home_view_mode.dart';
+import 'package:cryptokb_scanner/feature/home/widget/home_background.dart';
+import 'package:cryptokb_scanner/product/const/app_paddings.dart';
+import 'package:cryptokb_scanner/product/navigation/app_router.dart';
 import 'package:flutter/material.dart';
 
 const String _mono = 'monospace';

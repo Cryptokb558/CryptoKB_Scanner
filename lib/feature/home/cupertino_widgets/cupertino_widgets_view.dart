@@ -1,4 +1,4 @@
-import 'package:akillisletme/product/const/app_paddings.dart';
+import 'package:cryptokb_scanner/product/const/app_paddings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

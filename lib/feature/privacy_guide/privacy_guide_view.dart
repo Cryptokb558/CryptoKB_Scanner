@@ -1,6 +1,6 @@
-import 'package:akillisletme/feature/privacy_guide/privacy_guide_view_model.dart';
-import 'package:akillisletme/feature/privacy_guide/widget/privacy_step_tile.dart';
-import 'package:akillisletme/product/const/app_paddings.dart';
+import 'package:cryptokb_scanner/feature/privacy_guide/privacy_guide_view_model.dart';
+import 'package:cryptokb_scanner/feature/privacy_guide/widget/privacy_step_tile.dart';
+import 'package:cryptokb_scanner/product/const/app_paddings.dart';
 import 'package:flutter/material.dart';
 
 class PrivacyGuideView extends StatefulWidget {

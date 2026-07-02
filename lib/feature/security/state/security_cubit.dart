@@ -1,8 +1,8 @@
-import 'package:akillisletme/feature/security/model/security_rule_check.dart';
-import 'package:akillisletme/feature/security/service/security_service.dart';
-import 'package:akillisletme/feature/security_timeline/service/security_history_service.dart';
-import 'package:akillisletme/product/enum/check_severity.dart';
-import 'package:akillisletme/product/enum/risk_level.dart';
+import 'package:cryptokb_scanner/feature/security/model/security_rule_check.dart';
+import 'package:cryptokb_scanner/feature/security/service/security_service.dart';
+import 'package:cryptokb_scanner/feature/security_timeline/service/security_history_service.dart';
+import 'package:cryptokb_scanner/product/enum/check_severity.dart';
+import 'package:cryptokb_scanner/product/enum/risk_level.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

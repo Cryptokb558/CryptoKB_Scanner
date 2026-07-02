@@ -2,9 +2,9 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:akillisletme/feature/network/model/network_log_event.dart';
-import 'package:akillisletme/product/enum/network_event_type.dart';
-import 'package:akillisletme/product/service/service_locator.dart';
+import 'package:cryptokb_scanner/feature/network/model/network_log_event.dart';
+import 'package:cryptokb_scanner/product/enum/network_event_type.dart';
+import 'package:cryptokb_scanner/product/service/service_locator.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/foundation.dart';
 

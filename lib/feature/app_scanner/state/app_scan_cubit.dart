@@ -1,6 +1,6 @@
-import 'package:akillisletme/feature/app_scanner/model/risky_app.dart';
-import 'package:akillisletme/feature/app_scanner/service/app_scan_service.dart';
-import 'package:akillisletme/product/enum/risk_level.dart';
+import 'package:cryptokb_scanner/feature/app_scanner/model/risky_app.dart';
+import 'package:cryptokb_scanner/feature/app_scanner/service/app_scan_service.dart';
+import 'package:cryptokb_scanner/product/enum/risk_level.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

@@ -1,8 +1,8 @@
-import 'package:akillisletme/feature/settings/about/widget/about_link_tile.dart';
-import 'package:akillisletme/feature/settings/about/widget/version_tile.dart';
-import 'package:akillisletme/feature/settings/widget/settings_section.dart';
-import 'package:akillisletme/product/const/app_string.dart';
-import 'package:akillisletme/product/init/language/locale_keys.g.dart';
+import 'package:cryptokb_scanner/feature/settings/about/widget/about_link_tile.dart';
+import 'package:cryptokb_scanner/feature/settings/about/widget/version_tile.dart';
+import 'package:cryptokb_scanner/feature/settings/widget/settings_section.dart';
+import 'package:cryptokb_scanner/product/const/app_string.dart';
+import 'package:cryptokb_scanner/product/init/language/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 

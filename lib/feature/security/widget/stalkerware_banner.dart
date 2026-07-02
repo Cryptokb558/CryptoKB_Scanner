@@ -1,5 +1,5 @@
-import 'package:akillisletme/product/const/app_paddings.dart';
-import 'package:akillisletme/product/enum/risk_level.dart';
+import 'package:cryptokb_scanner/product/const/app_paddings.dart';
+import 'package:cryptokb_scanner/product/enum/risk_level.dart';
 import 'package:flutter/material.dart';
 
 /// Headline "is my phone being watched?" verdict, aggregating the spyware-

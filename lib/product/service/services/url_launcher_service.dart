@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:akillisletme/product/const/app_string.dart';
+import 'package:cryptokb_scanner/product/const/app_string.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 

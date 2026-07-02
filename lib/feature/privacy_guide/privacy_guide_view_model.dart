@@ -1,6 +1,6 @@
-import 'package:akillisletme/feature/privacy_guide/model/privacy_step.dart';
-import 'package:akillisletme/feature/privacy_guide/privacy_guide_view.dart';
-import 'package:akillisletme/product/enum/check_severity.dart';
+import 'package:cryptokb_scanner/feature/privacy_guide/model/privacy_step.dart';
+import 'package:cryptokb_scanner/feature/privacy_guide/privacy_guide_view.dart';
+import 'package:cryptokb_scanner/product/enum/check_severity.dart';
 import 'package:flutter/material.dart';
 
 abstract class PrivacyGuideViewModel extends State<PrivacyGuideView> {

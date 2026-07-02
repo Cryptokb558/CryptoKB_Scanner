@@ -1,4 +1,4 @@
-import 'package:akillisletme/feature/home/widget/home_background.dart';
+import 'package:cryptokb_scanner/feature/home/widget/home_background.dart';
 import 'package:flutter/material.dart';
 
 /// MaterialApp builder — global background + overlay katmani.

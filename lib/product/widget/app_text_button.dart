@@ -1,4 +1,4 @@
-import 'package:akillisletme/product/utils/button_feedback.dart';
+import 'package:cryptokb_scanner/product/utils/button_feedback.dart';
 import 'package:flutter/material.dart';
 
 

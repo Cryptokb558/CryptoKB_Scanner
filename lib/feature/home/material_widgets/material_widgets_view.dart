@@ -1,5 +1,5 @@
-import 'package:akillisletme/feature/home/material_widgets/material_widgets_view_mode.dart';
-import 'package:akillisletme/product/const/app_paddings.dart';
+import 'package:cryptokb_scanner/feature/home/material_widgets/material_widgets_view_mode.dart';
+import 'package:cryptokb_scanner/product/const/app_paddings.dart';
 import 'package:flutter/material.dart';
 
 class MaterialWidgetsView extends StatefulWidget {

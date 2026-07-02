@@ -1,4 +1,4 @@
-import 'package:akillisletme/product/cache/cache_manager.dart';
+import 'package:cryptokb_scanner/product/cache/cache_manager.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 

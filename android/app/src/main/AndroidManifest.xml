@@ -9,7 +9,7 @@
         tools:ignore="QueryAllPackagesPermission" />
 
     <application
-        android:label="Security Scanner"
+        android:label="CryptoKB Scanner"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -1,5 +1,5 @@
-import 'package:akillisletme/product/init/language/locale_keys.g.dart';
-import 'package:akillisletme/product/navigation/app_router.dart';
+import 'package:cryptokb_scanner/product/init/language/locale_keys.g.dart';
+import 'package:cryptokb_scanner/product/navigation/app_router.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 

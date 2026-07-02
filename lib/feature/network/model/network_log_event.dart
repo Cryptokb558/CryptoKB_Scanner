@@ -1,4 +1,4 @@
-import 'package:akillisletme/product/enum/network_event_type.dart';
+import 'package:cryptokb_scanner/product/enum/network_event_type.dart';
 import 'package:equatable/equatable.dart';
 
 /// A single persisted network event (drop, recovery or connection change).

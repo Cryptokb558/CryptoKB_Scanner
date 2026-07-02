@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:akillisletme/feature/security_timeline/model/security_snapshot.dart';
-import 'package:akillisletme/feature/security_timeline/model/security_timeline_event.dart';
-import 'package:akillisletme/product/enum/risk_level.dart';
-import 'package:akillisletme/product/service/service_locator.dart';
+import 'package:cryptokb_scanner/feature/security_timeline/model/security_snapshot.dart';
+import 'package:cryptokb_scanner/feature/security_timeline/model/security_timeline_event.dart';
+import 'package:cryptokb_scanner/product/enum/risk_level.dart';
+import 'package:cryptokb_scanner/product/service/service_locator.dart';
 
 /// Persists one [SecuritySnapshot] per completed scan and derives a
 /// human-readable timeline by diffing consecutive snapshots

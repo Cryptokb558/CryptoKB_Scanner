@@ -1,9 +1,9 @@
-import 'package:akillisletme/feature/login_process/splash/state/splash_cubit.dart';
-import 'package:akillisletme/product/const/app_paddings.dart';
-import 'package:akillisletme/product/const/app_string.dart';
-import 'package:akillisletme/product/init/language/locale_keys.g.dart';
-import 'package:akillisletme/product/navigation/app_router.dart';
-import 'package:akillisletme/product/widget/app_primary_button.dart';
+import 'package:cryptokb_scanner/feature/login_process/splash/state/splash_cubit.dart';
+import 'package:cryptokb_scanner/product/const/app_paddings.dart';
+import 'package:cryptokb_scanner/product/const/app_string.dart';
+import 'package:cryptokb_scanner/product/init/language/locale_keys.g.dart';
+import 'package:cryptokb_scanner/product/navigation/app_router.dart';
+import 'package:cryptokb_scanner/product/widget/app_primary_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

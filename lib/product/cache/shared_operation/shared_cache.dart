@@ -1,5 +1,5 @@
-import 'package:akillisletme/product/cache/shared_operation/base_shared_operation.dart';
-import 'package:akillisletme/product/cache/shared_operation/shared_keys.dart';
+import 'package:cryptokb_scanner/product/cache/shared_operation/base_shared_operation.dart';
+import 'package:cryptokb_scanner/product/cache/shared_operation/shared_keys.dart';
 import 'package:flutter/material.dart';
 
 final class SharedCache {

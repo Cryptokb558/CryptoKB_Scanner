@@ -1,4 +1,4 @@
-import 'package:akillisletme/product/enum/risk_level.dart';
+import 'package:cryptokb_scanner/product/enum/risk_level.dart';
 import 'package:equatable/equatable.dart';
 
 /// One installed app plus the signals used to judge how risky it is.

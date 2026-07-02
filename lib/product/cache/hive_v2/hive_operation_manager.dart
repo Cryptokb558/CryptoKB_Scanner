@@ -1,4 +1,4 @@
-import 'package:akillisletme/product/cache/cache_manager.dart';
+import 'package:cryptokb_scanner/product/cache/cache_manager.dart';
 import 'package:hive_ce/hive.dart';
 
 final class HiveOperationManager<T extends CacheModel>

@@ -1,6 +1,6 @@
-import 'package:akillisletme/feature/app_scanner/model/risky_app.dart';
-import 'package:akillisletme/feature/security/service/security_service.dart';
-import 'package:akillisletme/product/const/app_paddings.dart';
+import 'package:cryptokb_scanner/feature/app_scanner/model/risky_app.dart';
+import 'package:cryptokb_scanner/feature/security/service/security_service.dart';
+import 'package:cryptokb_scanner/product/const/app_paddings.dart';
 import 'package:flutter/material.dart';
 
 /// Expandable card for one scanned app: risk pill, reasons and granted

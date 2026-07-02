@@ -1,12 +1,12 @@
 import 'dart:io';
 
-import 'package:akillisletme/product/const/app_paddings.dart';
-import 'package:akillisletme/product/const/method_channels.dart';
-import 'package:akillisletme/product/init/language/locale_keys.g.dart';
-import 'package:akillisletme/product/model/android_module_info.dart';
-import 'package:akillisletme/product/widget/app_primary_button.dart';
-import 'package:akillisletme/product/widget/app_secondary_button.dart';
-import 'package:akillisletme/product/widget/app_text_button.dart';
+import 'package:cryptokb_scanner/product/const/app_paddings.dart';
+import 'package:cryptokb_scanner/product/const/method_channels.dart';
+import 'package:cryptokb_scanner/product/init/language/locale_keys.g.dart';
+import 'package:cryptokb_scanner/product/model/android_module_info.dart';
+import 'package:cryptokb_scanner/product/widget/app_primary_button.dart';
+import 'package:cryptokb_scanner/product/widget/app_secondary_button.dart';
+import 'package:cryptokb_scanner/product/widget/app_text_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

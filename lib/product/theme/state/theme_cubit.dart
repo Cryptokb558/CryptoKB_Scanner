@@ -1,7 +1,7 @@
-import 'package:akillisletme/product/cache/shared_operation/shared_keys.dart';
-import 'package:akillisletme/product/service/service_locator.dart';
-import 'package:akillisletme/product/theme/app_theme_variant.dart';
-import 'package:akillisletme/product/theme/state/theme_state.dart';
+import 'package:cryptokb_scanner/product/cache/shared_operation/shared_keys.dart';
+import 'package:cryptokb_scanner/product/service/service_locator.dart';
+import 'package:cryptokb_scanner/product/theme/app_theme_variant.dart';
+import 'package:cryptokb_scanner/product/theme/state/theme_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

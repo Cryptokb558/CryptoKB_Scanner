@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:akillisletme/product/service/service_locator.dart';
+import 'package:cryptokb_scanner/product/service/service_locator.dart';
 import 'package:flutter/material.dart';
 
 /// Ambient "matrix code rain" backdrop — faint neon glyph columns falling

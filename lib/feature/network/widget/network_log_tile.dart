@@ -1,5 +1,5 @@
-import 'package:akillisletme/feature/network/model/network_log_event.dart';
-import 'package:akillisletme/product/const/app_paddings.dart';
+import 'package:cryptokb_scanner/feature/network/model/network_log_event.dart';
+import 'package:cryptokb_scanner/product/const/app_paddings.dart';
 import 'package:flutter/material.dart';
 
 /// List row for a single persisted network event.

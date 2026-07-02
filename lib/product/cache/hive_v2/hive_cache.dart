@@ -1,5 +1,5 @@
-import 'package:akillisletme/product/cache/cache_manager.dart';
-import 'package:akillisletme/product/cache/hive_v2/hive_registrar.g.dart';
+import 'package:cryptokb_scanner/product/cache/cache_manager.dart';
+import 'package:cryptokb_scanner/product/cache/hive_v2/hive_registrar.g.dart';
 import 'package:hive_ce/hive.dart';
 import 'package:path_provider/path_provider.dart';
 

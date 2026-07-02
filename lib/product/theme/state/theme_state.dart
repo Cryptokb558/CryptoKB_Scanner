@@ -1,4 +1,4 @@
-import 'package:akillisletme/product/theme/app_theme_variant.dart';
+import 'package:cryptokb_scanner/product/theme/app_theme_variant.dart';
 import 'package:flutter/material.dart';
 
 @immutable

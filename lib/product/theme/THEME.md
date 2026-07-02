@@ -163,7 +163,7 @@ Dark modda pastel/yumuşak, light modda canlı/doygun tonlar. Geçişlerde `lerp
 ### Erişim
 
 ```dart
-import 'package:akillisletme/product/theme/app_theme_colors.dart';
+import 'package:cryptokb_scanner/product/theme/app_theme_colors.dart';
 
 // Kısa erişim (önerilen)
 context.appColors.scoreGold

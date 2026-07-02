@@ -1,5 +1,5 @@
-import 'package:akillisletme/feature/settings/language_selection/widget/language_card.dart';
-import 'package:akillisletme/product/init/language/language_item.dart';
+import 'package:cryptokb_scanner/feature/settings/language_selection/widget/language_card.dart';
+import 'package:cryptokb_scanner/product/init/language/language_item.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

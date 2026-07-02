@@ -1,5 +1,5 @@
-import 'package:akillisletme/feature/privacy_guide/model/privacy_step.dart';
-import 'package:akillisletme/product/const/app_paddings.dart';
+import 'package:cryptokb_scanner/feature/privacy_guide/model/privacy_step.dart';
+import 'package:cryptokb_scanner/product/const/app_paddings.dart';
 import 'package:flutter/material.dart';
 
 /// Checklist card for one manual privacy-audit step.

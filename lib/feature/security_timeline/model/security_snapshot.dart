@@ -1,4 +1,4 @@
-import 'package:akillisletme/product/enum/risk_level.dart';
+import 'package:cryptokb_scanner/product/enum/risk_level.dart';
 import 'package:equatable/equatable.dart';
 
 /// A persisted summary of one security scan, used to build the timeline and to
