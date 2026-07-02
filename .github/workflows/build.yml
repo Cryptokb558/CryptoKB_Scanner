@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Generate code (Hive, JSON, routing, assets)
+        run: dart run build_runner build --delete-conflicting-outputs
+
       - name: Generate localization files
         run: dart run easy_localization:generate -f keys -o locale_keys.g.dart -S assets/translations -O lib/product/init/language
 
